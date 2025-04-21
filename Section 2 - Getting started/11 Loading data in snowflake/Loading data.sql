@@ -1,5 +1,9 @@
 //Creating the table / Meta data
 
+//Check that table is empy
+ USE DATABASE OUR_FIRST_DB;
+
+
 CREATE TABLE "OUR_FIRST_DB"."PUBLIC"."LOAN_PAYMENT" (
   "Loan_ID" STRING,
   "loan_status" STRING,
@@ -14,9 +18,7 @@ CREATE TABLE "OUR_FIRST_DB"."PUBLIC"."LOAN_PAYMENT" (
   "Gender" STRING);
   
   
- //Check that table is empy
- USE DATABASE OUR_FIRST_DB;
-
+ 
  SELECT * FROM LOAN_PAYMENT;
 
  
