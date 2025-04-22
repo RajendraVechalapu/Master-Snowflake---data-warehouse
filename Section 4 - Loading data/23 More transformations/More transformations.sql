@@ -8,7 +8,7 @@ CREATE OR REPLACE TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX (
   
     )
 
-
+SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX 
 
 //Example 4 - Using subset of columns
 

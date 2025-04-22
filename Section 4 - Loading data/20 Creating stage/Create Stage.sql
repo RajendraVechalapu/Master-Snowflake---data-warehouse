@@ -32,6 +32,25 @@ CREATE OR REPLACE STAGE MANAGE_DB.external_stages.aws_stage
 
 LIST @aws_stage;
 
+LIST @aws_stage/OrderDetails.csv;
+
+
+-- Step 2: Query the file in the stage using the format
+-- Preview top 100 rows from order.csv in the stage
+CREATE OR REPLACE FILE FORMAT my_csv_format
+  TYPE = 'CSV'
+  FIELD_OPTIONALLY_ENCLOSED_BY = '"'
+  SKIP_HEADER = 0
+  FIELD_DELIMITER = ',';  -- change to ';' if semicolon-separated
+
+-- it does not work
+SELECT *
+FROM @aws_stage/OrderDetails.csv (FILE_FORMAT => my_csv_format)
+LIMIT 1;
+
+
+
+
 //Load data using copy command
 
 COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS

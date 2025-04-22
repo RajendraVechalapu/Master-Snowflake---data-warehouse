@@ -1,11 +1,5 @@
 // Transforming using the SELECT statement
 
-COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
-    FROM (select s.$1, s.$2 from @MANAGE_DB.external_stages.aws_stage s)
-    file_format= (type = csv field_delimiter=',' skip_header=1)
-    files=('OrderDetails.csv');
-
-
 
 // Example 1 - Table
 
@@ -15,6 +9,11 @@ CREATE OR REPLACE TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX (
     )
    
    
+   COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM (select s.$1, s.$2 from @MANAGE_DB.external_stages.aws_stage s)
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    files=('OrderDetails.csv');
+    
 SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
    
 // Example 2 - Table    
