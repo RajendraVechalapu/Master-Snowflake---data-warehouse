@@ -49,7 +49,7 @@ CREATE OR REPLACE TABLE rejected AS
 select rejected_record from table(result_scan(last_query_id()));
 
 INSERT INTO rejected
-select rejected_record from table(result_scan(last_query_id()));
+select * from table(result_scan(last_query_id()));
 
 SELECT * FROM rejected;
 
